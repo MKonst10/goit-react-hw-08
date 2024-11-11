@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { fetchContacts } from "../redux/contacts/operations";
+import { fetchContacts } from "../../redux/contacts/operations";
 import { useDispatch, useSelector } from "react-redux";
-import { selectError, selectLoading } from "../redux/selectors";
-import ContactForm from "../components/ContactForm/ContactForm";
-import SearchBox from "../components/SearchBox/SearchBox";
-import Loader from "../components/Loader/Loader";
-import ContactList from "../components/ContactList/ContactList";
+import { selectError, selectLoading } from "../../redux/selectors";
+import ContactForm from "../../components/ContactForm/ContactForm";
+import SearchBox from "../../components/SearchBox/SearchBox";
+import Loader from "../../components/Loader/Loader";
+import ContactList from "../../components/ContactList/ContactList";
 
 function ContactsPage() {
   const error = useSelector(selectError);

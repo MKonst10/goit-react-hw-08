@@ -2,10 +2,10 @@ import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import Layout from "./components/Layout/Layout";
-import HomePage from "./pages/HomePage";
-import RegistrationPage from "./pages/RegistrationPage";
-import LoginPage from "./pages/LoginPage";
-import ContactsPage from "./pages/ContactsPage";
+import HomePage from "./pages/HomePage/HomePage";
+import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import ContactsPage from "./pages/ContactsPage/ContactsPage";
 
 function App() {
   return (
