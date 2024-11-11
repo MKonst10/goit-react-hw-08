@@ -1,0 +1,39 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  border: 1px black solid;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.form button {
+  width: fit-content;
+  margin: 10px auto 0 auto;
+  padding: 7px;
+  background-color: #387478;
+  border: none;
+  color: #e2f1e7;
+}
+
+.error {
+  color: red;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.inputName {
+  color: #e2f1e7;
+}
+
+.label input {
+  background-color: #e2f1e7bd;
+  border: none;
+  border-radius: 5px;
+  height: 25px;
+  color: black;
+  border: 2px solid #387478;
+}

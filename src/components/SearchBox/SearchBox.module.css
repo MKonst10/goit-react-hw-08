@@ -1,0 +1,20 @@
+.searchBox {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.searchBox p {
+  margin: 0;
+  color: #e2f1e7;
+}
+
+.searchBox input {
+  background-color: #e2f1e7bd;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  height: 25px;
+  border: 2px solid #387478;
+}

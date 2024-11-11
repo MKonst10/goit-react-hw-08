@@ -1,0 +1,40 @@
+.contactCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px black solid;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.contactCard:first-child {
+  margin-top: 10px;
+}
+
+.contactCard button {
+  height: 40%;
+  padding: 7px;
+}
+
+.contactInfo {
+  text-align: left;
+}
+
+.infoItem {
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  color: #e2f1e7;
+}
+
+.button {
+  background-color: #387478;
+  border: none;
+  color: #e2f1e7;
+}
+
+.infoItem svg {
+  fill: #629584;
+}
