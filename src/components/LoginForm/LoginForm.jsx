@@ -53,7 +53,9 @@ const LoginForm = () => {
               component="span"
             />
           </label>
-          <button type="submit">Sign In</button>
+          <button type="submit" className={styles.loginButton}>
+            Sign In
+          </button>
         </Form>
       </Formik>
     </div>

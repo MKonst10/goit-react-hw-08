@@ -14,6 +14,13 @@
 .contactCard button {
   height: 40%;
   padding: 7px;
+  transition: scale 250ms, box-shadow 250ms;
+}
+
+.contactCard button:hover {
+  scale: 1.05;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .contactInfo {
