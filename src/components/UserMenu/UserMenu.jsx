@@ -1,5 +1,15 @@
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/auth/selectors";
+
 const UserMenu = () => {
-  return <div>UserMenu</div>;
+  const user = useSelector(selectUser);
+
+  return (
+    <div>
+      <span>Hello, {user.name}!</span>
+      <button type="button">Logout</button>
+    </div>
+  );
 };
 
 export default UserMenu;

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { login, register } from "./operations";
+import { login, logout, refreshUser, register } from "./operations";
 
 const INITIAL_STATE = {
   user: {
@@ -8,7 +8,7 @@ const INITIAL_STATE = {
   },
   token: null,
   isLoggedIn: false,
-  isRefreshing: false,
+  isRefreshing: true,
   isLoading: false,
   error: null,
 };
@@ -26,8 +26,7 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.isLoggedIn = true;
         state.token = action.payload.token;
-        state.user.name = action.payload.user.name;
-        state.user.email = action.payload.user.email;
+        state.user = action.payload.user;
       })
       .addCase(register.rejected, (state, action) => {
         state.isLoading = false;
@@ -41,11 +40,34 @@ export const authSlice = createSlice({
         state.isLoading = false;
         state.isLoggedIn = true;
         state.token = action.payload.token;
-        state.user.name = action.payload.user.name;
-        state.user.email = action.payload.user.email;
+        state.user = action.payload.user;
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(logout.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(logout.fulfilled, () => {
+        return INITIAL_STATE;
+      })
+      .addCase(logout.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      })
+      .addCase(refreshUser.pending, (state) => {
+        state.isRefreshing = true;
+        state.error = null;
+      })
+      .addCase(refreshUser.fulfilled, (state, action) => {
+        state.isRefreshing = false;
+        state.isLoggedIn = true;
+        state.user = action.payload;
+      })
+      .addCase(refreshUser.rejected, (state, action) => {
+        state.isRefreshing = false;
         state.error = action.payload;
       });
   },
