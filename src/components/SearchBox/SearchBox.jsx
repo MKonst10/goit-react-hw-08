@@ -13,7 +13,7 @@ const SearchBox = () => {
 
   return (
     <div className={styles.searchBox}>
-      <p>Find contacts by name</p>
+      <p>Find contacts by number or name</p>
       <input type="text" value={value} onChange={onSearch} />
     </div>
   );
