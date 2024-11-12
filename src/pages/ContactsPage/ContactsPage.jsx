@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import { fetchContacts } from "../../redux/contacts/operations";
 import { useDispatch, useSelector } from "react-redux";
-import { selectError, selectLoading } from "../../redux/contacts/selectors";
+import {
+  selectContacts,
+  selectError,
+  selectLoading,
+} from "../../redux/contacts/selectors";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import Loader from "../../components/Loader/Loader";
@@ -10,6 +14,7 @@ import ContactList from "../../components/ContactList/ContactList";
 function ContactsPage() {
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,7 +28,11 @@ function ContactsPage() {
       <SearchBox />
       {loading && <Loader />}
       {error && <p style={{ color: "white" }}>An error {error} occured</p>}
-      <ContactList />
+      {contacts && contacts.length > 0 ? (
+        <ContactList />
+      ) : (
+        <div>You don`t have any contacts yet</div>
+      )}
     </div>
   );
 }

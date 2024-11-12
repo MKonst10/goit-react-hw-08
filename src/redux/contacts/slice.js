@@ -4,7 +4,7 @@ import { selectContacts } from "./selectors";
 import { selectFilter } from "../filters/selectors";
 
 const INITIAL_STATE = {
-  items: [],
+  items: null,
   loading: false,
   error: null,
 };
