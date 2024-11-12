@@ -10,6 +10,7 @@ import ContactForm from "../../components/ContactForm/ContactForm";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import Loader from "../../components/Loader/Loader";
 import ContactList from "../../components/ContactList/ContactList";
+import styles from "./ContactsPage.module.css";
 
 function ContactsPage() {
   const error = useSelector(selectError);
@@ -31,7 +32,7 @@ function ContactsPage() {
       {contacts && contacts.length > 0 ? (
         <ContactList />
       ) : (
-        <div>You don`t have any contacts yet</div>
+        <div className={styles.contacts}>You don`t have any contacts yet</div>
       )}
     </div>
   );
