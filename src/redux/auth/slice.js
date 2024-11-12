@@ -8,7 +8,7 @@ const INITIAL_STATE = {
   },
   token: null,
   isLoggedIn: false,
-  isRefreshing: true,
+  isRefreshing: false,
   isLoading: false,
   error: null,
 };
@@ -53,9 +53,9 @@ export const authSlice = createSlice({
       .addCase(logout.fulfilled, () => {
         return INITIAL_STATE;
       })
-      .addCase(logout.rejected, (state, { payload }) => {
+      .addCase(logout.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = payload;
+        state.error = action.payload;
       })
       .addCase(refreshUser.pending, (state) => {
         state.isRefreshing = true;
