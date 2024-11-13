@@ -11,6 +11,7 @@ import { selectIsRefreshing } from "./redux/auth/selectors";
 
 import PrivateRoute from "./components/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute";
+import Loader from "./components/Loader/Loader";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const RegistrationPage = lazy(() =>
@@ -28,12 +29,12 @@ function App() {
   }, [dispatch]);
 
   if (isRefreshing) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (
     <Layout>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route
