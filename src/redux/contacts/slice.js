@@ -3,6 +3,7 @@ import { fetchContacts, addContact, deleteContact } from "./operations";
 import { selectContacts } from "./selectors";
 import { selectFilter } from "../filters/selectors";
 import { logout } from "../auth/operations";
+import toast from "react-hot-toast";
 
 const INITIAL_STATE = {
   items: null,
@@ -34,10 +35,12 @@ export const contactsSlice = createSlice({
       .addCase(addContact.fulfilled, (state, action) => {
         state.loading = false;
         state.items.push(action.payload);
+        toast.success("New contact has been added");
       })
       .addCase(addContact.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+        toast.error("Error when adding a contact");
       })
       .addCase(deleteContact.pending, (state) => {
         state.loading = true;
@@ -48,10 +51,12 @@ export const contactsSlice = createSlice({
         state.items = state.items.filter(
           (contact) => contact.id !== action.payload.id
         );
+        toast.success("Contact has been deleted");
       })
       .addCase(deleteContact.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+        toast.error("Error when deleting a contact");
       })
       .addCase(logout.fulfilled, () => {
         return INITIAL_STATE;
